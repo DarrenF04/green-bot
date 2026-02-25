@@ -1,0 +1,29 @@
+name: Green Bot
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # Runs daily at 12:00 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Update timestamp
+        run: |
+          echo "Last updated: $(date)" > data.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "Darren Green Bot"
+          git config --global user.email "darren@example.com"
+          git add .
+          git commit -m "Daily update"
+          git push
