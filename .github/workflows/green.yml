@@ -23,7 +23,7 @@ jobs:
       - name: Commit changes
         run: |
           git config --global user.name "Darren Green Bot"
-          git config --global user.email "darren@example.com"
+          git config --global user.email "darfernandes04@gmail.com"
           git add .
           git commit -m "Daily update"
           git push
